@@ -64,3 +64,47 @@ for log in access_logs:
         print(f"Invalid Employee ID: {emp_id}, Area: {access_area}, Status: {access_status}, Time: {access_time}")
 
 
+# 3. Identify security violations (access to unauthorized areas)  
+
+access_violations = []
+for log in access_logs:
+    log_data = log.split(":")
+    emp_id = log_data[0]
+    access_area = log_data[1]
+    access_status = log_data[2]
+    access_time = log_data[3] + ":" + log_data[4]
+
+    if emp_id in employee_dict:
+        emp_department = employee_dict[emp_id]["department"]
+        if access_area not in department_access_rights.get(emp_department, set()):
+            access_violations.append({
+                "emp_id": emp_id,
+                "access_area": access_area,
+                "access_status": access_status,
+                "access_time": access_time
+            })
+            print(f"Security Violation: Employee ID: {emp_id}, Area: {access_area}, Status: {access_status}, Time: {access_time}")
+
+# 4. Generate access reports by department 
+
+access_reports = {}
+for log in access_logs:
+    log_data = log.split(":")
+    emp_id = log_data[0]
+    access_area = log_data[1]
+    access_status = log_data[2]
+    access_time = log_data[3] + ":" + log_data[4]
+
+    if emp_id in employee_dict:
+        emp_department = employee_dict[emp_id]["department"]
+        if emp_department not in access_reports:
+            access_reports[emp_department] = []
+        access_reports[emp_department].append({
+            "emp_id": emp_id,
+            "access_area": access_area,
+            "access_status": access_status,
+            "access_time": access_time
+        })
+
+        print(f"Access Report: Department: {emp_department}, Employee ID: {emp_id},Area: {access_area}, Status: {access_status}, Time: {access_time}")
+        
