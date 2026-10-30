@@ -15,4 +15,7 @@ if attendance_percentage >= 75:
     print("Student is eligible for the exam.")
 else:
     print("Student is not eligible for the exam.")
+
+
+    
     
