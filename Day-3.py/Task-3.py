@@ -44,6 +44,10 @@ for employee in employees:
     }
     print(f"Employee ID: {emp_id}, Name: {emp_name}, Department: {emp_department}, Role: {emp_role}")   
 
+
+
+# ekkada 1. Validate employee credentials and departments ante employees list lo unna prathi employee ni iterate chesi, employee id, name, department, and role ni extract chesi employee_dict lo store chesthundi. Finally, employee details print chesthundi.
+
 # 2. Track access attempts (successful and failed)
 
 
@@ -62,6 +66,13 @@ for log in access_logs:
             print(f"Access Denied: Employee ID: {emp_id}, Area: {access_area}, Status: {access_status}, Time: {access_time}")
     else:
         print(f"Invalid Employee ID: {emp_id}, Area: {access_area}, Status: {access_status}, Time: {access_time}")
+
+# ekkada log data ani endhuku tisukonaru ante access_logs list lo unna prathi log ni iterate chesi, log data ni split chesi employee id, access area, access status, and access time ni extract chesthundi. 
+# Tarvata employee_dict lo employee id check chesi, department access rights ni verify chesthundi. Finally, access attempt details print chesthundi.
+# log data 1 ,2,3,4 uses enti ante and access time ni print cheyadaniki use chesthundi. access time lo hours and minutes ni combine chesi print chesthundi.
+# invalid ne ela check chesthundi ante employee_dict lo employee id lekapothe invalid employee id ani print chesthundi.
+# a invalid ni ela check chesthundi ante employee_dict lo employee id lekapothe invalid employee id ani print chesthundi.
+
 
 
 # 3. Identify security violations (access to unauthorized areas)  
@@ -85,6 +96,9 @@ for log in access_logs:
             })
             print(f"Security Violation: Employee ID: {emp_id}, Area: {access_area}, Status: {access_status}, Time: {access_time}")
 
+# ekkada access_violations list lo unauthorized access attempts ni store chesthundi.
+#  access_logs list lo unna prathi log ni iterate chesi, log data ni split chesi employee id, access area, access status, and access time ni extract chesthundi.
+
 # 4. Generate access reports by department 
 
 access_reports = {}
@@ -96,6 +110,7 @@ for log in access_logs:
     access_time = log_data[3] + ":" + log_data[4]
 
     if emp_id in employee_dict:
+
         emp_department = employee_dict[emp_id]["department"]
         if emp_department not in access_reports:
             access_reports[emp_department] = []

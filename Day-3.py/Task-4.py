@@ -41,7 +41,9 @@ for review in reviews:
     print(f"Review: {review}, Positive Words: {positive_count}, Negative Words: {negative_count}")
 
 
-
+# ekkada positive_count and negative_count ante prathi review lo unna positive and negative sentiment words ni count chesthundi. 
+# Tarvata review_sentiment_count list lo tuple format lo store chesthundi. Finally, prathi review ki positive and negative word counts print chesthundi.
+# negative ke - use cheyalunda + endhuku use itundhi 
 
 # 2. Find most frequently mentioned product features  
 
@@ -57,7 +59,14 @@ for review in reviews:
                 feature_count[word] = 1
                 print(f"Feature Count Updated: {word} appears {feature_count[word]} times")
 
+
+# ekkada feature_count dictionary lo product features ni count chesthundi.
+# lower() method use chesi prathi review lo unna words ni lowercase lo convert chesthundi.
+# split() method use chesi prathi review ni words ga divide chesthundi.
+
 # 3. Identify customer concerns and compliments
+
+
 customer_concerns = []
 customer_compliments = []
 print("Identifying customer concerns and compliments...")
@@ -71,6 +80,7 @@ for review in reviews:
         print(f"Customer Compliment Identified: {review}")
 
 
+
 # 4. Generate a sentiment score for each review 
 
 sentiment_scores = []
@@ -78,3 +88,8 @@ for review, positive_count, negative_count in review_sentiment_count:
     sentiment_score = positive_count - negative_count
     sentiment_scores.append((review, sentiment_score))
     print(f"Review: {review}, Sentiment Score: {sentiment_score}")
+
+# ekkada sentiment_scores list lo prathi review ki sentiment score calculate chesthundi.
+# ante positive_count and negative_count difference ni calculate chesi sentiment score ga store chesthundi. Finally, prathi review ki sentiment score print chesthundi.
+# sentiment endhuku calculate chesthundi ante positive and negative sentiment words ni count chesi difference calculate chesthundi.
+
